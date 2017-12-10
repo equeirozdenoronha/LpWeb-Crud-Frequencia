@@ -5,16 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { ListaDeTurmasComponent } from './lista-de-turmas/lista-de-turmas.component';
 import { TurmasService } from './turmas.service';
 import { DisciplinasService } from './disciplinas.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { HomeComponent } from './home/home.component';
-import { TurmaComponent } from './turma/turma.component';
-import { ListaDeDisciplinasComponent } from './lista-de-disciplinas/lista-de-disciplinas.component';
-import { DisciplinaComponent } from './disciplina/disciplina.component';
-import { CadastroDeDisciplinaComponent } from './cadastro-de-disciplina/cadastro-de-disciplina.component';
-import { CadastroDeTurmaComponent } from './cadastro-de-turma/cadastro-de-turma.component';
+import {FrequenciaService} from './frequencia.service'
+import {ProfessorService} from './professor.service'
+import {HorarioService} from './horario.service'
+import {AlunoService} from './aluno.service';
+import {FuncionariosServices} from './funcionarios.services';
+import {PessoasService} from './pessoas.service';
+import {CargosService} from './cargos.service';
+import {FuncoesService} from './funcoes.service';
+import {CadastroFrequenciaComponent} from './cadastro-frequencia/cadastro-frequencia.component'
+import {ListaDeFrequenciasComponent} from './lista-de-frequencias/lista-de-frequencias.component';
+import { FrequenciaComponent } from './frequencia/frequencia.component'
+
+
 
 @NgModule({
     imports: [
@@ -26,18 +33,25 @@ import { CadastroDeTurmaComponent } from './cadastro-de-turma/cadastro-de-turma.
     ],
     declarations: [
         AppComponent,
-        ListaDeTurmasComponent,
         PaginaNaoEncontradaComponent,
         HomeComponent,
-        TurmaComponent,
-        ListaDeDisciplinasComponent,
-        DisciplinaComponent,
-        CadastroDeDisciplinaComponent,
-        CadastroDeTurmaComponent,
+        CadastroFrequenciaComponent,
+        ListaDeFrequenciasComponent,
+        FrequenciaComponent
     ],
     providers: [
         TurmasService,
-        DisciplinasService
+        DisciplinasService,
+        DisciplinasService,
+        TurmasService,
+        CargosService,
+        FuncionariosServices,
+        PessoasService,
+        FuncoesService,
+        FrequenciaService,
+        ProfessorService,
+        HorarioService,
+        AlunoService
     ],
     bootstrap: [AppComponent]
 })

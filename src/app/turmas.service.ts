@@ -10,37 +10,12 @@ export class TurmasService {
   constructor(private http: HttpClient) {
   }
 
-  getTurmas(q?: string, disciplina?: number, ano?: number): Observable<Turma[]> {
-    let url = this.API_URL + '/turmas';
-    if (q) {
-      url += '?q=' + q;
-    }
-    if (disciplina) {
-      const d = 'disciplinaId=' + disciplina;
-      if (url.indexOf('?') != -1) {
-        url += '&' + d;
-      } else {
-        url += '?' + d;
-      }
-    }
-    if (ano) {
-      const a = 'ano=' + ano;
-      if (url.indexOf('?') != -1) {
-        url += '&' + a;
-      } else {
-        url += '?' + a;
-      }
-    }
-    if (url.indexOf('?') != -1) {
-      url += '&_expand=disciplina';
-    } else {
-      url += '?_expand=disciplina';
-    }
-    return this.http.get<Turma[]>(url);
+  getTurmas(): Observable<Turma[]> {
+    return this.http.get<Turma[]>(`${this.API_URL}/turmas`);
   }
 
   getTurma(id: number): Observable<Turma> {
-    return this.http.get<Turma>(this.API_URL + '/turmas/' + id + '?_expand=disciplina');
+    return this.http.get<Turma>(this.API_URL + '/turmas/' + id);
   }
 
   save(codigo: string, disciplinaId: number, ano: number) {
