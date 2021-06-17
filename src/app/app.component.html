@@ -1,6 +1,35 @@
-<div class="container">
-    <h1>{{title}}</h1>
-    <p>Este software web é desenvolvido utilizando Angular.</p>
-    <br>
-    <img src="assets/images/angular.svg" width="200">
+<nav class="navbar fixed-top navbar-dark navbar-expand-lg " style="background-color: #a80000;">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">Gerenciador Escolar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/frequencias" routerLinkActive="active">Frequencias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/frequencias/cadastrar" routerLinkActive="active">Cadastro de Frequencia</a>
+                </li>
+            </ul>
+            <div class="navbar-text">
+                Olá, usuário!
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <router-outlet></router-outlet>
+
+    <hr>
+    <footer>
+        <small>Gerenciador Escolar (copyleft) 2017</small>
+    </footer>
 </div>

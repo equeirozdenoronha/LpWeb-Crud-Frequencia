@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header text-center">
+    Cadastrar Frequencias
+  </div>
+  <div class="card-body">
+    <form #cadastro="ngForm" novalidate>
+      <div class="row">
+        <legend class="col-form-legend">Turma</legend>
+        <select class="form-control" name="turma" [(ngModel)]="frequencia.turmaId" required>
+          <option *ngFor="let turma of turmas" [value]="turma.id">{{turma.codigo}}</option>
+        </select>
+        <legend class="col-form-legend">Disciplina</legend>
+        <select class="form-control" name="disciplina" [(ngModel)]="frequencia.disciplinaId" required>
+          <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{disciplina.nome}}</option>
+        </select>
+        <legend class="col-form-legend">Professor</legend>
+        <select class="form-control" name="professor" [(ngModel)]="frequencia.professorId" required>
+          <option *ngFor="let professor of professores" [value]="professor.id">{{professor.nome}}</option>
+        </select>
+        <legend class="col-form-legend">Horario</legend>
+        <select class="form-control" name="horario" [(ngModel)]="frequencia.horarioId" required>
+          <option *ngFor="let horario of horarios" [value]="horario.id">{{horario.nome}}</option>
+        </select>
+        <legend class="col-form-legend">Aluno</legend>
+        <select class="form-control" name="aluno" [(ngModel)]="frequencia.aluno" required>
+          <option *ngFor="let aluno of alunos" [value]="aluno.id">{{aluno.nome}}</option>
+        </select>
+        <div class="col-form-legend">
+          <label for="codigo">Data</label>
+          <input type="text" name="data" id="data" class="form-control" [(ngModel)]="data" required>
+        </div>
+      </div>
+      <div class="col-form-legend">Status:</div>
+      <div class="form-check col-sm-4">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="Radios" id="adminC" [(ngModel)]="frequencia.status" value="Presença"  required>
+          Presente
+        </label>
+      </div>
+      <div class="col-2"></div>
+      <div class="form-check col-sm-4">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="Radios" id="doceC" [(ngModel)]="frequencia.status" value="Falta" required>
+          Ausente
+        </label>
+      </div>
+      <div class="text-center">
+        <button type="button" (click)="salvar()" [disabled]="!cadastro.valid" class="btn btn-success">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>

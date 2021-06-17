@@ -1,0 +1,34 @@
+
+<h1>Reltório Geral de Frequencia</h1>
+<hr>
+<div class="alert alert-success" *ngIf="excluir_ok">
+    <strong>Sucesso!</strong> A frequencia foi excluída com sucesso.
+</div>
+<div class="alert alert-danger" *ngIf="excluir_erro">
+    <strong>Ops!</strong> Ocorreu um erro ao tentar excluir a frequencia. Aguarde alguns instantes e tente novamente.
+</div>
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th width="80">Turma</th>
+        <th>Disciplina</th>
+        <th>Professor</th>
+        <th>Aluno</th>
+        <th width="250">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let frequencia of frequencias">
+        <td>{{frequencia.turma.codigo}}</td>
+        <td>{{frequencia.disciplina.nome}}</td>
+        <td>{{frequencia.professor.nome}}</td>
+        <td>{{frequencia.aluno.nome}}</td>
+        <td>
+        <td>
+            <a [routerLink]="['/frequencias', frequencia.id]" class="btn btn-primary btn-sm">Abrir</a>
+            <a [routerLink]="['/frequencias', frequencia.id, 'editar']" class="btn btn-secondary btn-sm">Editar</a>
+            <a href="javascript:void(0)" class="btn btn-danger btn-sm" (click)="excluir(frequencia)">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
